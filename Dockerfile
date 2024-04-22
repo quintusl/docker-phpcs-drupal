@@ -20,6 +20,7 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN composer global config --no-plugins allow-plugins.mglaman/composer-drupal-lenient true
 RUN composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
 RUN composer global require "squizlabs/php_codesniffer=*"
+RUN composer global require "micheh/phpcs-gitlab"
 RUN composer global require drupal/coder:8.3.13
 RUN composer global require drupal/coder
 RUN composer global update --with-dependencies drupal/coder
