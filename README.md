@@ -25,7 +25,7 @@ phpcs:
     - echo -n "" > /output/filelist.txt
     # Only check changed files in merge requests
     - git diff --name-only origin/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME | while read F; do test -f "$F" && echo "$F" >> /output/filelist.txt ; done
-    - phpcs --standard=Drupal,DrupalPractice --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md,yml --file-list=/output/filelist.txt --report=full --report-\\Micheh\\PhpCodeSniffer\\Report\\Gitlab=.ci/phpcs-quality-report.json
+    - phpcs --standard=Drupal,DrupalPractice --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md,yml --basepath=. --file-list=/output/filelist.txt --report=full --report-\\Micheh\\PhpCodeSniffer\\Report\\Gitlab=.ci/phpcs-quality-report.json
   artifacts:
     paths:
       - ".ci/phpcs-quality-report.json"
